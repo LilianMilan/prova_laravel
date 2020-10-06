@@ -19,4 +19,21 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/home', 'TabeliaoController@index')
+->name('admin.listarTabeliao');
+
+Route::get('/tabeliaos/adicionar', 'TabeliaoController@adicionar')
+->name('admin.adicionarTabeliao');
+
+Route::post('/tabeliaos/salvar', 'TabeliaoController@salvar')
+->name('admin.salvarTabeliao');
+
+Route::get('/tabeliaos/editar/{id}', 'TabeliaoController@editar')
+->name('admin.editarTabeliao');
+
+Route::put('/tabeliaos/atualizar/{id}', 'TabeliaoController@atualizar')
+->name('admin.atualizarTabeliao');
+
+Route::delete('/tabeliaos/deletar/{id}', 'TabeliaoController@deletar')
+->name('admin.deletarTabeliao');
